@@ -16,6 +16,7 @@ services:
     #- 127.0.0.1:8080:8443
     volumes:
     - "${PWD}/coder:/home/coder:rw"
+    - "${PWD}/opt:/opt:rw"
     - "${SSH_AUTH_SOCK}:/ssh-agent:rw"
     # with server certificate and key
     #- "/path/to/server.crt:/server.crt:ro"
