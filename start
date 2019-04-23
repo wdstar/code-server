@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo chgrp 1000 $SSH_AUTH_SOCK
+sudo chmod g+w  $SSH_AUTH_SOCK
+sudo -E docker-compose up -d

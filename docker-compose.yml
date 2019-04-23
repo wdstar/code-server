@@ -1,0 +1,24 @@
+---
+version: '2'
+services:
+  code-server:
+    image: codercom/code-server:latest
+    command:
+    - --disable-telemetry
+    # with server certificate and key
+    #- --cert=/server.crt
+    #- --cert-key=/server.key
+    # for local access
+    #- --allow-http --no-auth
+    ports:
+    - 8443:8443
+    # for local access
+    #- 127.0.0.1:8080:8443
+    volumes:
+    - "${PWD}/coder:/home/coder:rw"
+    - "${SSH_AUTH_SOCK}:/ssh-agent:rw"
+    # with server certificate and key
+    #- "/path/to/server.crt:/server.crt:ro"
+    #- "/path/to/server.key:/server.key:ro"
+    environment:
+      SSH_AUTH_SOCK: /ssh-agent
