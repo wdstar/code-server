@@ -7,6 +7,19 @@ code-server docker-compose configurations.
 - Docker
 - Docker Compose
 
+### Docker & Docker Compose installation by Chef (optional)
+
+```
+Ubuntu:$ sudo apt-get install ca-certificates curl git
+CentOS:$ sudo yum install ca-certificates curl git
+
+$ curl -L https://omnitruck.chef.io/install.sh | sudo bash
+$ git clone git://git.osdn.net/gitroot/metasearch/grid-chef-repo.git
+$ cd grid-chef-repo/
+$ sudo chef-client -z -c solo.rb -j nodes/local-docker.json
+$ sudo docker info
+```
+
 ## Usage
 
 - ssh a host server.
