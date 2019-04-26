@@ -8,6 +8,7 @@ code-server docker-compose configurations.
     - [Docker & Docker Compose installation by Chef (optional)](#docker--docker-compose-installation-by-chef-optional)
 - [Usage](#usage)
 - [Installation of Languages (optional)](#installation-of-languages-optional)
+    - [Chef](#chef)
     - [Golang](#golang)
     - [Node.js](#nodejs)
 
@@ -65,6 +66,16 @@ Happy coding!
 
 ## Installation of Languages (optional)
 
+### Chef
+
+- https://downloads.chef.io/chefdk/
+
+```
+$ curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk -v 1
+$ eval "$(/opt/chefdk/bin/chef shell-init bash)"
+$ chef -v
+```
+
 ### Golang
 
 - https://golang.org/
@@ -84,5 +95,6 @@ $ /opt/go/bin/go version
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 $ nvm install --lts
+$ . ~/.bashrc
 $ node -v
 ```
