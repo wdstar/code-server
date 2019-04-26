@@ -53,3 +53,27 @@ $ ./stop
 ```
 
 Happy coding!
+
+## Installation of Languages (optional)
+
+### Golang
+
+- https://golang.org/
+- [Official binary distributions](https://golang.org/dl/)
+
+```
+$ wget https://dl.google.com/go/go<version>.linux-amd64.tar.gz
+$ sudo tar -C /opt -xzf go<version>.linux-amd64.tar.gz
+$ /opt/go/bin/go version
+```
+
+### Node.js
+
+- https://nodejs.org/
+- [Node Version Manager](https://github.com/nvm-sh/nvm)
+
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+$ nvm install --lts
+$ node -v
+```
