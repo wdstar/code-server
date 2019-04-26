@@ -2,6 +2,15 @@
 
 code-server docker-compose configurations.
 
+## Table of Contents
+
+- [Requirements](#requirements)
+    - [Docker & Docker Compose installation by Chef (optional)](#docker--docker-compose-installation-by-chef-optional)
+- [Usage](#usage)
+- [Installation of Languages (optional)](#installation-of-languages-optional)
+    - [Golang](#golang)
+    - [Node.js](#nodejs)
+
 ## Requirements
 
 - Docker
