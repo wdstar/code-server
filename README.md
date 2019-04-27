@@ -11,6 +11,8 @@ code-server docker-compose configurations.
     - [Chef](#chef)
     - [Golang](#golang)
     - [Node.js](#nodejs)
+- [Tools (optional)](#tools-optional)
+    - [direnv](#direnv)
 
 ## Requirements
 
@@ -97,4 +99,18 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bas
 $ nvm install --lts
 $ . ~/.bashrc
 $ node -v
+```
+
+## Tools (optional)
+
+### direnv
+
+- https://github.com/direnv/direnv
+
+```
+$ sudo curl -L -o /opt/bin/direnv https://github.com/direnv/direnv/releases/download/<version>/direnv.linux-amd64
+$ sudo chmod +x /opt/bin/direnv
+$ /opt/bin/direnv version
+
+# add `eval "$(direnv hook bash)"` to ~/.bashrc
 ```
