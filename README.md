@@ -10,6 +10,7 @@ code-server docker-compose configurations.
 - [Installation of Languages (optional)](#installation-of-languages-optional)
     - [Chef](#chef)
     - [Golang](#golang)
+    - [Java](#java)
     - [Node.js](#nodejs)
     - [Python](#python)
     - [Ruby](#ruby)
@@ -93,6 +94,15 @@ $ sudo tar -C /opt -xzf go<version>.linux-amd64.tar.gz
 $ /opt/go/bin/go version
 ```
 
+### Java
+
+- Install by the Optware-ng (see the following *Tools* section to install it)
+
+```
+$ sudo /opt/bin/ipkg install openjdk8-jdk
+$ java -version
+```
+
 ### Node.js
 
 - https://nodejs.org/
@@ -107,7 +117,7 @@ $ node -v
 
 ### Python
 
-- Install by the Optware-ng
+- Install by the Optware-ng (see the following *Tools* section to install it)
 
 ```
 $ sudo /opt/bin/ipkg update
@@ -131,7 +141,7 @@ $ python3 -V
 
 ### Ruby
 
-- Install by the Optware-ng
+- Install by the Optware-ng (see the following *Tools* section to install it)
 
 ```
 $ sudo /opt/bin/ipkg update
