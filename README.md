@@ -13,6 +13,7 @@ code-server docker-compose configurations.
     - [Node.js](#nodejs)
 - [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
+    - [kubectl](#kubectl)
 
 ## Requirements
 
@@ -113,4 +114,14 @@ $ sudo chmod +x /opt/bin/direnv
 $ /opt/bin/direnv version
 
 # add `eval "$(direnv hook bash)"` to ~/.bashrc
+```
+
+### kubectl
+
+- https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+```
+$ sudo curl -L -o /opt/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+$ sudo chmod +x /opt/bin/kubectl
+$ /opt/bin/kubectl version
 ```
