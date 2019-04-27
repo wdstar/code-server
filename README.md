@@ -11,9 +11,12 @@ code-server docker-compose configurations.
     - [Chef](#chef)
     - [Golang](#golang)
     - [Node.js](#nodejs)
+    - [Python](#python)
+    - [Ruby](#ruby)
 - [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
     - [kubectl](#kubectl)
+    - [Optware-ng](#optware-ng)
 
 ## Requirements
 
@@ -102,6 +105,42 @@ $ . ~/.bashrc
 $ node -v
 ```
 
+### Python
+
+- Install by the Optware-ng
+
+```
+$ sudo /opt/bin/ipkg update
+$ sudo /opt/bin/ipkg install python
+$ python -V
+or 
+$ sudo /opt/bin/ipkg install python3
+$ python3 -V
+```
+
+- or Use deb packages (**Volatile!**)
+
+```
+$ sudo apt-get update
+$ sudo apt-get install python
+$ python -V
+or
+$ sudo apt-get install python3
+$ python3 -V
+```
+
+### Ruby
+
+- Install by the Optware-ng
+
+```
+$ sudo /opt/bin/ipkg update
+$ sudo /opt/bin/ipkg install ruby
+$ ruby -v
+```
+
+- or Use Chef DK embedded Ruby.
+
 ## Tools (optional)
 
 ### direnv
@@ -124,4 +163,15 @@ $ /opt/bin/direnv version
 $ sudo curl -L -o /opt/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 $ sudo chmod +x /opt/bin/kubectl
 $ /opt/bin/kubectl version
+```
+
+### Optware-ng
+
+- https://github.com/Optware/Optware-ng
+
+```
+$ wget -O - http://ipkg.nslu2-linux.org/optware-ng/bootstrap/buildroot-x86_64-bootstrap.sh | sudo sh
+$ sudo /opt/bin/ipkg update
+$ sudo /opt/bin/ipkg list
+$ sudo /opt/bin/ipkg install <package>
 ```
