@@ -16,6 +16,7 @@ code-server docker-compose configurations.
     - [Ruby](#ruby)
 - [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
+    - [jq](#jq)
     - [kubectl](#kubectl)
     - [Optware-ng](#optware-ng)
 
@@ -91,6 +92,8 @@ $ chef -v
 ```
 $ wget https://dl.google.com/go/go<version>.linux-amd64.tar.gz
 $ sudo tar -C /opt -xzf go<version>.linux-amd64.tar.gz
+$ echo 'PATH=${PATH}:/opt/go/bin' >> ~/.bashrc
+$ . ~/.bashrc
 $ /opt/go/bin/go version
 ```
 
@@ -99,7 +102,7 @@ $ /opt/go/bin/go version
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
 ```
-$ sudo /opt/bin/ipkg install openjdk8-jdk
+$ sudo ipkg install openjdk8-jdk
 $ java -version
 ```
 
@@ -110,8 +113,8 @@ $ java -version
 
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-$ nvm install --lts
 $ . ~/.bashrc
+$ nvm install --lts
 $ node -v
 ```
 
@@ -120,11 +123,11 @@ $ node -v
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
 ```
-$ sudo /opt/bin/ipkg update
-$ sudo /opt/bin/ipkg install python
+$ sudo ipkg update
+$ sudo ipkg install python
 $ python -V
 or 
-$ sudo /opt/bin/ipkg install python3
+$ sudo ipkg install python3
 $ python3 -V
 ```
 
@@ -144,8 +147,8 @@ $ python3 -V
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
 ```
-$ sudo /opt/bin/ipkg update
-$ sudo /opt/bin/ipkg install ruby
+$ sudo ipkg update
+$ sudo ipkg install ruby
 $ ruby -v
 ```
 
@@ -165,6 +168,15 @@ $ /opt/bin/direnv version
 # add `eval "$(direnv hook bash)"` to ~/.bashrc
 ```
 
+### jq
+
+- https://github.com/stedolan/jq
+
+```
+$ sudo curl -o /opt/bin/jq -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+$ sudo chmod +x /opt/bin/jq
+```
+
 ### kubectl
 
 - https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -181,7 +193,9 @@ $ /opt/bin/kubectl version
 
 ```
 $ wget -O - http://ipkg.nslu2-linux.org/optware-ng/bootstrap/buildroot-x86_64-bootstrap.sh | sudo sh
-$ sudo /opt/bin/ipkg update
-$ sudo /opt/bin/ipkg list
-$ sudo /opt/bin/ipkg install <package>
+$ echo 'PATH=${PATH}:/opt/bin:/opt/sbin' >> ~/.bashrc
+$ . ~/.bashrc
+$ sudo ipkg update
+$ sudo ipkg list
+$ sudo ipkg install <package>
 ```

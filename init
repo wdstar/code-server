@@ -2,3 +2,4 @@
 
 [ -d coder ] || mkdir coder
 sudo chown 1000:1000 coder
+sudo chown root:root etc/sudoers.d/code-server

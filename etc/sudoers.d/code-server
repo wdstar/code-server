@@ -1,0 +1,2 @@
+# `/opt/bin:/opt/sbin` added.
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/opt/bin:/opt/sbin"
