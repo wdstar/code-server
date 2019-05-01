@@ -7,7 +7,7 @@ code-server docker-compose configurations.
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Installation of Languages (optional)](#installation-of-languages-optional)
-    - [C#](#c#)
+    - [C#](#c)
     - [Chef](#chef)
     - [Golang](#golang)
     - [Java](#java)
