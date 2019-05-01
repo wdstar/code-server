@@ -14,6 +14,7 @@ code-server docker-compose configurations.
     - [Node.js](#nodejs)
     - [Python](#python)
     - [Ruby](#ruby)
+    - [TypeScript](#typescript)
 - [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
     - [jq (recommended)](#jq-recommended)
@@ -179,6 +180,18 @@ $ ruby -v
 ```
 
 - or Use Chef DK embedded Ruby.
+
+### TypeScript
+
+- Install Node.js (see the above section) and then
+
+```
+$ mkdir your-project
+$ cd your-project
+$ npm init
+$ npm install --save-dev typescript
+$ npx tsc -v
+```
 
 ## Tools (optional)
 
