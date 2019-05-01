@@ -7,6 +7,7 @@ code-server docker-compose configurations.
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Installation of Languages (optional)](#installation-of-languages-optional)
+    - [C#](#c#)
     - [Chef](#chef)
     - [Golang](#golang)
     - [Java](#java)
@@ -16,9 +17,9 @@ code-server docker-compose configurations.
 - [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
     - [jq (recommended)](#jq-recommended)
-    - [yq](#yq)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
+    - [yq](#yq)
 
 ## Requirements
 
@@ -74,6 +75,28 @@ $ ./stop
 Happy coding!
 
 ## Installation of Languages (optional)
+
+### C#
+
+- https://dotnet.microsoft.com/download
+- [How to use .NET Core on RHEL 6 / CentOS 6](https://github.com/dotnet/core/blob/master/Documentation/build-and-install-rhel6-prerequisites.md)
+- https://github.com/unicode-org/icu/releases/
+
+```bash
+# download .NET Core binaries.
+$ mkdir $HOME/dotnet
+$ tar xvzf dotnet-sdk-*-linux-x64.tar.gz -C $HOME/dotnet
+$ echo 'DOTNET_ROOT=$HOME/dotnet' >> ~/.bashrc
+$ echo 'PATH=$PATH:$HOME/dotnet' >> ~/.bashrc
+
+$ curl -L -O https://github.com/unicode-org/icu/releases/download/release-64-2/icu4c-64_2-Ubuntu18.04-x64.tgz
+$ sudo mkdir /opt/icu
+$ sudo tar -xvzf icu4c-64_2-Ubuntu18.04-x64.tgz -C /opt/icu --strip-components=4
+$ echo 'LD_LIBRARY_PATH=/opt/icu/lib' >> ~/.bashrc
+
+$ . ~/.bashrc
+$ dotnet --version
+```
 
 ### Chef
 
@@ -180,17 +203,6 @@ $ sudo chmod +x /opt/bin/jq
 $ /opt/bin/jq -V
 ```
 
-### yq
-
-- https://github.com/mikefarah/yq
-
-```bash
-$ sudo curl -o /opt/bin/yq -L \
-  $(curl -s -L https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url')
-$ sudo chmod +x /opt/bin/yq
-$ /opt/bin/yq -V
-```
-
 ### kubectl
 
 - https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -213,4 +225,15 @@ $ . ~/.bashrc
 $ sudo ipkg update
 $ sudo ipkg list
 $ sudo ipkg install <package>
+```
+
+### yq
+
+- https://github.com/mikefarah/yq
+
+```bash
+$ sudo curl -o /opt/bin/yq -L \
+  $(curl -s -L https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url')
+$ sudo chmod +x /opt/bin/yq
+$ /opt/bin/yq -V
 ```
