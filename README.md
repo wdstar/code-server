@@ -84,10 +84,12 @@ Happy coding!
 
 ```bash
 # download .NET Core binaries.
-$ mkdir $HOME/dotnet
-$ tar xvzf dotnet-sdk-*-linux-x64.tar.gz -C $HOME/dotnet
-$ echo 'DOTNET_ROOT=$HOME/dotnet' >> ~/.bashrc
-$ echo 'PATH=$PATH:$HOME/dotnet' >> ~/.bashrc
+$ mkdir /opt/dotnet
+$ tar xvzf dotnet-sdk-*-linux-x64.tar.gz -C /opt/dotnet
+$ echo 'DOTNET_ROOT=/opt/dotnet' >> ~/.bashrc
+$ echo 'PATH=$PATH:/opt/dotnet' >> ~/.bashrc
+# optional
+$ echo 'DOTNET_CLI_TELEMETRY_OPTOUT=1' >> ~/.bashrc
 
 $ curl -L -O https://github.com/unicode-org/icu/releases/download/release-64-2/icu4c-64_2-Ubuntu18.04-x64.tgz
 $ sudo mkdir /opt/icu
