@@ -67,6 +67,12 @@ $ ./logs
 
 - access https://localhost:8443/ and enter the password.
 
+- execute Bash.
+
+```
+$ ./exec-bash
+```
+
 - stop a code-server.
 
 ```bash
