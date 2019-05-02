@@ -85,10 +85,10 @@ Happy coding!
 
 ```bash
 # download .NET Core binaries.
-$ mkdir /opt/dotnet
-$ tar xvzf dotnet-sdk-*-linux-x64.tar.gz -C /opt/dotnet
-$ echo 'DOTNET_ROOT=/opt/dotnet' >> ~/.bashrc
-$ echo 'PATH=$PATH:/opt/dotnet' >> ~/.bashrc
+$ mkdir ${HOME}/dotnet
+$ tar xvzf dotnet-sdk-*-linux-x64.tar.gz -C ${HOME}/dotnet
+$ echo 'DOTNET_ROOT=${HOME}/dotnet' >> ~/.bashrc
+$ echo 'PATH=$PATH:${HOME}/dotnet' >> ~/.bashrc
 # optional
 $ echo 'DOTNET_CLI_TELEMETRY_OPTOUT=1' >> ~/.bashrc
 
