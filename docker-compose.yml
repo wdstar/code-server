@@ -23,4 +23,8 @@ services:
     #- "/path/to/server.crt:/server.crt:ro"
     #- "/path/to/server.key:/server.key:ro"
     environment:
+      # ICU
+      LD_LIBRARY_PATH: /opt/icu/lib
+      # Optware-ng, .Net
+      PATH: '${PATH}:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
       SSH_AUTH_SOCK: /ssh-agent
