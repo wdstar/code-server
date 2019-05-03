@@ -27,6 +27,7 @@ code-server local execution scripts and docker-compose configurations.
 
 ## on Local server
 
+- install `curl` and `jq` commands.
 - install the code-server.
 
 ```bash
