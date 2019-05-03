@@ -4,9 +4,11 @@ code-server docker-compose configurations.
 
 ## Table of Contents
 
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Installation of Languages (optional)](#installation-of-languages-optional)
+- [on Local server](#on-local-server)
+- [on Docker](#on-docker)
+    - [Requirements](#requirements)
+    - [Usage](#usage)
+- [Installation of Languages (optional on Docker)](#installation-of-languages-optional-on-docker)
     - [C#](#c)
     - [Chef](#chef)
     - [Golang](#golang)
@@ -15,14 +17,38 @@ code-server docker-compose configurations.
     - [Python](#python)
     - [Ruby](#ruby)
     - [TypeScript](#typescript)
-- [Tools (optional)](#tools-optional)
+- [Tools (optional on Docker)](#tools-optional-on-docker)
     - [direnv](#direnv)
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
     - [yq](#yq)
 
-## Requirements
+## on Local server
+
+- install the code-server.
+
+```bash
+$ git clone https://github.com/wdstar/code-server.git
+$ cd code-server/local
+$ ./code-server_install
+```
+
+- start a code-server.
+
+```bash
+$ ./coded
+```
+
+- access http://localhost:8080/ and enter the password.
+
+- stop a code-server by hitting `Ctrl+C`.
+
+Happy coding!
+
+## on Docker
+
+### Requirements
 
 - Docker
 - Docker Compose
@@ -41,7 +67,7 @@ $ sudo docker info
 ```
 </div></details>
 
-## Usage
+### Usage
 
 - ssh a host server.
 
@@ -81,7 +107,7 @@ $ ./stop
 
 Happy coding!
 
-## Installation of Languages (optional)
+## Installation of Languages (optional on Docker)
 
 ### C#
 
@@ -199,7 +225,7 @@ $ npm install --save-dev typescript
 $ npx tsc -v
 ```
 
-## Tools (optional)
+## Tools (optional on Docker)
 
 ### direnv
 

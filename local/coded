@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/usr/local/bin/code-server \
+  --disable-telemetry \
+  --allow-http --no-auth \
+  --host 127.0.0.1 --port 8080
