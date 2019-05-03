@@ -1,6 +1,6 @@
 # code-server
 
-code-server docker-compose configurations.
+code-server local execution scripts and docker-compose configurations.
 
 ## Table of Contents
 
