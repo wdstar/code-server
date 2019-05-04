@@ -14,6 +14,7 @@ code-server local execution scripts and docker-compose configurations.
     - [Golang](#golang)
     - [Java](#java)
     - [Node.js](#nodejs)
+    - [Perl](#perl)
     - [Python](#python)
     - [Ruby](#ruby)
     - [Rust](#rust)
@@ -56,6 +57,7 @@ Happy coding!
 
 - Docker
 - Docker Compose
+- sudo privileges
 
 <details><summary>Docker & Docker Compose installation by Chef (optional)</summary><div>
 
@@ -179,6 +181,14 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bas
 $ . ~/.bashrc
 $ nvm install --lts
 $ node -v
+```
+
+### Perl
+
+Pre-installed.
+
+```bash
+$ perl -v
 ```
 
 ### Python
