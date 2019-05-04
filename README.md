@@ -21,6 +21,7 @@ code-server local execution scripts and docker-compose configurations.
 - [Tools (optional on Docker)](#tools-optional-on-docker)
     - [direnv](#direnv)
     - [Docker CLI](#docker-cli)
+    - [Docker Compose](#docker-compose)
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
@@ -264,10 +265,21 @@ $ /opt/bin/direnv version
 
 - https://docs.docker.com/install/linux/docker-ce/binaries/
 
-```
+```bash
 $ curl -L -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.5.tgz
 $ sudo tar xvzf docker-*.tgz -C /opt/bin/ --strip=1 --wildcards '*/docker'
 $ sudo docker version
+```
+
+### Docker Compose
+
+- https://docs.docker.com/compose/install/
+
+```bash
+$ sudo curl -o /opt/bin/docker-compose -L \
+  $(curl -s -L https://api.github.com/repos/docker/compose/releases/latest | jq -r '.assets[] | select(.name | endswith("Linux-x86_64")) | .browser_download_url')
+$ sudo chmod +x /opt/bin/docker-compose
+$ sudo docker-compose version
 ```
 
 ### jq (recommended)
