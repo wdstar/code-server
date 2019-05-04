@@ -19,6 +19,7 @@ services:
     - "${PWD}/etc/sudoers.d/code-server:/etc/sudoers.d/code-server:ro"
     - "${PWD}/opt:/opt:rw"
     - "${SSH_AUTH_SOCK}:/ssh-agent:rw"
+    - "/var/run/docker.sock:/var/run/docker.sock:rw"
     # with server certificate and key
     #- "/path/to/server.crt:/server.crt:ro"
     #- "/path/to/server.key:/server.key:ro"

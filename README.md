@@ -20,6 +20,7 @@ code-server local execution scripts and docker-compose configurations.
     - [TypeScript](#typescript)
 - [Tools (optional on Docker)](#tools-optional-on-docker)
     - [direnv](#direnv)
+    - [Docker CLI](#docker-cli)
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
@@ -257,6 +258,16 @@ $ sudo chmod +x /opt/bin/direnv
 $ /opt/bin/direnv version
 
 # add `eval "$(direnv hook bash)"` to ~/.bashrc
+```
+
+### Docker CLI
+
+- https://docs.docker.com/install/linux/docker-ce/binaries/
+
+```
+$ curl -L -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.5.tgz
+$ sudo tar xvzf docker-*.tgz -C /opt/bin/ --strip=1 --wildcards '*/docker'
+$ sudo docker version
 ```
 
 ### jq (recommended)
