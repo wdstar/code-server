@@ -18,6 +18,7 @@ services:
     - "${PWD}/coder:/home/coder:rw"
     - "${PWD}/etc/sudoers.d/code-server:/etc/sudoers.d/code-server:ro"
     - "${PWD}/opt:/opt:rw"
+    # comment out if you don't use the SSH protocol to access GitHub,...
     - "${SSH_AUTH_SOCK}:/ssh-agent:rw"
     - "/var/run/docker.sock:/var/run/docker.sock:rw"
     # with server certificate and key

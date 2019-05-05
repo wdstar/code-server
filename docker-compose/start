@@ -1,5 +1,10 @@
 #!/bin/sh
 
-sudo chgrp 1000 $SSH_AUTH_SOCK
-sudo chmod g+w  $SSH_AUTH_SOCK
+if [ -n "$SSH_AUTH_SOCK" ]; then
+  sudo chgrp 1000 $SSH_AUTH_SOCK
+  sudo chmod g+w  $SSH_AUTH_SOCK
+else
+  echo 'WARN $SSH_AUTH_SOCK is not defined. Please activate ssh-agent.'
+fi
+
 sudo -E docker-compose up -d
