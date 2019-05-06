@@ -24,6 +24,7 @@ code-server local execution scripts and docker-compose configurations.
     - [direnv](#direnv)
     - [Docker CLI](#docker-cli)
     - [Docker Compose](#docker-compose)
+    - [helm](#helm)
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
@@ -299,6 +300,16 @@ $ sudo curl -o /opt/bin/docker-compose -L \
   $(curl -s -L https://api.github.com/repos/docker/compose/releases/latest | jq -r '.assets[] | select(.name | endswith("Linux-x86_64")) | .browser_download_url')
 $ sudo chmod +x /opt/bin/docker-compose
 $ sudo docker-compose version
+```
+
+### helm
+
+- https://helm.sh/docs/using_helm/#installing-helm
+
+```bash
+$ curl -L https://git.io/get_helm.sh | bash
+$ sudo mv $(which helm) /opt/bin/
+$ /opt/bin/helm version
 ```
 
 ### jq (recommended)
