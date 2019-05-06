@@ -7,6 +7,7 @@ code-server local execution scripts and docker-compose configurations.
 - [on Local server](#on-local-server)
 - [on Docker](#on-docker)
     - [Requirements](#requirements)
+    - [Persistent Volumes](#persistent-volumes)
     - [Usage](#usage)
 - [Installation of Languages (optional on Docker)](#installation-of-languages-optional-on-docker)
     - [C#](#c)
@@ -58,6 +59,7 @@ Happy coding!
 - Docker
 - Docker Compose
 - sudo privileges
+- ssh-agent (optional but recommended)
 
 <details><summary>Docker & Docker Compose installation by Chef (optional)</summary><div>
 
@@ -72,6 +74,13 @@ $ sudo chef-client -z -c solo.rb -j nodes/local-docker.json
 $ sudo docker info
 ```
 </div></details>
+
+### Persistent Volumes
+
+|Volumes|Mounted Path|Descriptions|
+|:---|:---|:---|
+|`./docker-compose/coder`|`/home/coder`|`coder` default user's home directory.|
+|`./docker-compose/opt`|`/opt`|To install language runtimes, SDKs and tools.|
 
 ### Usage
 
