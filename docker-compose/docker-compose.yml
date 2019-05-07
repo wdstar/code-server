@@ -28,5 +28,5 @@ services:
       # ICU
       LD_LIBRARY_PATH: /opt/icu/lib
       # Optware-ng, .Net
-      PATH: '${PATH}:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
+      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
       SSH_AUTH_SOCK: /ssh-agent
