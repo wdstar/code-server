@@ -28,6 +28,7 @@ code-server local execution scripts and docker-compose configurations.
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
     - [Optware-ng (recommended)](#optware-ng-recommended)
+    - [yarn](#yarn)
     - [yq](#yq)
 
 ## on Local server
@@ -344,6 +345,18 @@ $ . ~/.bashrc
 $ sudo ipkg update
 $ sudo ipkg list
 $ sudo ipkg install <package>
+```
+
+### yarn
+
+- https://yarnpkg.com/en/docs/install#alternatives-stable
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install gpg
+$ curl -o- -L https://yarnpkg.com/install.sh | bash
+$ . ~/.bashrc
+$ yarn -v
 ```
 
 ### yq
