@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./init
+
 if [ -n "$SSH_AUTH_SOCK" ]; then
   sudo chgrp 1000 $SSH_AUTH_SOCK
   sudo chmod g+w  $SSH_AUTH_SOCK

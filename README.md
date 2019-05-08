@@ -92,7 +92,6 @@ $ sudo docker info
 ```bash
 $ git clone https://github.com/wdstar/code-server.git
 $ cd code-server/docker-compose
-$ ./init
 ```
 
 - start a code-server.
