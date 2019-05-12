@@ -127,9 +127,21 @@ Happy coding!
 
 ### C#
 
+- https://dotnet.microsoft.com/download
+
+#### on Local Ubuntu (18.04 LTS)
+
+```bash
+$ wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+$ sudo dpkg -i packages-microsoft-prod.deb
+$ sudo add-apt-repository universe
+$ sudo apt-get install apt-transport-https
+$ sudo apt-get update
+$ sudo apt-get install dotnet-sdk-2.2
+```
+
 #### on Docker
 
-- https://dotnet.microsoft.com/download
 - [How to use .NET Core on RHEL 6 / CentOS 6](https://github.com/dotnet/core/blob/master/Documentation/build-and-install-rhel6-prerequisites.md)
 - https://github.com/unicode-org/icu/releases/
 
@@ -251,6 +263,15 @@ $ python3 -V
 ```
 
 ### Ruby
+
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get install ruby
+$ ruby -v
+```
+
+- or Use Chef DK embedded Ruby.
 
 #### on Docker
 
