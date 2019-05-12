@@ -202,6 +202,15 @@ $ go version
 
 ### Java
 
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get install default-jdk
+# or
+$ sudo apt-get install openjdk-<major_version>-jdk
+$ java -version
+```
+
 #### on Docker
 
 - Install by the Optware-ng (see the following *Tools* section to install it)
