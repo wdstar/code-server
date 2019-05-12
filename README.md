@@ -21,6 +21,7 @@ code-server local execution scripts and docker-compose configurations.
     - [Rust](#rust)
     - [TypeScript](#typescript)
 - [Tools (optional)](#tools-optional)
+    - [Byobu](#byobu)
     - [direnv](#direnv)
     - [Docker CLI](#docker-cli)
     - [Docker Compose](#docker-compose)
@@ -328,6 +329,41 @@ $ npx tsc -v
 ```
 
 ## Tools (optional)
+
+### Byobu
+
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get install byobu
+```
+
+#### on Docker
+
+- http://byobu.co/downloads.html
+
+- Install `tmux` or `screen` by the Optware-ng (see the following *Optware-ng* section to install it).
+```bash
+$ sudo ipkg install tmux
+# or
+$ sudo ipkg install screen
+```
+
+- Install `byobu`.
+```bash
+$ sudo apt-get update
+$ sudo apt-get install build-essential
+$ wget https://launchpad.net/byobu/trunk/5.127/+download/byobu_5.127.orig.tar.gz
+$ tar xvzf byobu*.tar.gz
+$ cd byobu-*/
+$ ./configure --prefix="$HOME/byobu"
+$ echo "export BYOBU_PYTHON='/usr/bin/env python'" >> $HOME/.bashrc
+$ make
+$ make install
+$ echo 'export PATH=$HOME/byobu/bin:$PATH' >> $HOME/.bashrc
+$ . $HOME/.bashrc
+$ byobu -v
+```
 
 ### direnv
 
