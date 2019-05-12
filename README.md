@@ -9,7 +9,7 @@ code-server local execution scripts and docker-compose configurations.
     - [Requirements](#requirements)
     - [Persistent Volumes](#persistent-volumes)
     - [Usage](#usage)
-- [Installation of Languages (optional on Docker)](#installation-of-languages-optional-on-docker)
+- [Installation of Languages (optional)](#installation-of-languages-optional)
     - [C#](#c)
     - [Chef](#chef)
     - [Golang](#golang)
@@ -20,7 +20,7 @@ code-server local execution scripts and docker-compose configurations.
     - [Ruby](#ruby)
     - [Rust](#rust)
     - [TypeScript](#typescript)
-- [Tools (optional on Docker)](#tools-optional-on-docker)
+- [Tools (optional)](#tools-optional)
     - [direnv](#direnv)
     - [Docker CLI](#docker-cli)
     - [Docker Compose](#docker-compose)
@@ -123,9 +123,11 @@ $ ./stop
 
 Happy coding!
 
-## Installation of Languages (optional on Docker)
+## Installation of Languages (optional)
 
 ### C#
+
+#### on Docker
 
 - https://dotnet.microsoft.com/download
 - [How to use .NET Core on RHEL 6 / CentOS 6](https://github.com/dotnet/core/blob/master/Documentation/build-and-install-rhel6-prerequisites.md)
@@ -153,6 +155,8 @@ $ dotnet --version
 
 - https://downloads.chef.io/chefdk/
 
+#### on Local Ubuntu & Docker
+
 ```bash
 $ curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk -v 1
 $ eval "$(/opt/chefdk/bin/chef shell-init bash)"
@@ -164,15 +168,29 @@ $ chef -v
 - https://golang.org/
 - [Official binary distributions](https://golang.org/dl/)
 
+#### on Local Ubuntu
+
+```bash
+$ wget https://dl.google.com/go/go<version>.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go*.linux-amd64.tar.gz
+$ echo 'PATH=${PATH}:/usr/local/go/bin' >> ~/.bashrc
+$ . ~/.bashrc
+$ go version
+```
+
+#### on Docker
+
 ```bash
 $ wget https://dl.google.com/go/go<version>.linux-amd64.tar.gz
 $ sudo tar -C /opt -xzf go*.linux-amd64.tar.gz
 $ echo 'PATH=${PATH}:/opt/go/bin' >> ~/.bashrc
 $ . ~/.bashrc
-$ /opt/go/bin/go version
+$ go version
 ```
 
 ### Java
+
+#### on Docker
 
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
@@ -186,6 +204,8 @@ $ java -version
 - https://nodejs.org/
 - [Node Version Manager](https://github.com/nvm-sh/nvm)
 
+#### on Local Ubuntu & Docker
+
 ```bash
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 $ . ~/.bashrc
@@ -195,6 +215,8 @@ $ node -v
 
 ### Perl
 
+#### on Local Ubuntu & Docker
+
 Pre-installed.
 
 ```bash
@@ -202,6 +224,20 @@ $ perl -v
 ```
 
 ### Python
+
+#### on Local Ubuntu
+
+- Use deb packages
+
+```bash
+$ sudo apt-get install python
+$ python -V
+or
+$ sudo apt-get install python3
+$ python3 -V
+```
+
+#### on Docker
 
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
@@ -214,18 +250,9 @@ $ sudo ipkg install python3
 $ python3 -V
 ```
 
-- or Use deb packages (**Volatile!**)
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get install python
-$ python -V
-or
-$ sudo apt-get install python3
-$ python3 -V
-```
-
 ### Ruby
+
+#### on Docker
 
 - Install by the Optware-ng (see the following *Tools* section to install it)
 
@@ -240,6 +267,8 @@ $ ruby -v
 ### Rust
 
 - https://www.rust-lang.org/tools/install
+
+#### on Local Ubuntu & Docker
 
 ```bash
 $ curl https://sh.rustup.rs -sSf | sh
@@ -258,6 +287,8 @@ $ rustc --version
 
 - Install Node.js (see the above section) and then
 
+#### on Local Ubuntu & Docker
+
 ```
 $ mkdir your-project
 $ cd your-project
@@ -266,11 +297,19 @@ $ npm install --save-dev typescript
 $ npx tsc -v
 ```
 
-## Tools (optional on Docker)
+## Tools (optional)
 
 ### direnv
 
 - https://github.com/direnv/direnv
+
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get install direnv
+```
+
+#### on Docker
 
 ```bash
 $ sudo curl -o /opt/bin/direnv -L \
@@ -285,6 +324,20 @@ $ /opt/bin/direnv version
 
 - https://docs.docker.com/install/linux/docker-ce/binaries/
 
+#### on Local Ubuntu
+
+```bash
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+$ sudo apt-get update
+$ sudo apt-get install docker-ce-cli 
+```
+
+#### on Docker
+
 ```bash
 $ curl -L -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.5.tgz
 $ sudo tar xvzf docker-*.tgz -C /opt/bin/ --strip=1 --wildcards '*/docker'
@@ -294,6 +347,17 @@ $ sudo docker version
 ### Docker Compose
 
 - https://docs.docker.com/compose/install/
+
+#### on Local Ubuntu
+
+```bash
+$ sudo curl -o /usr/local/bin/docker-compose -L \
+  $(curl -s -L https://api.github.com/repos/docker/compose/releases/latest | jq -r '.assets[] | select(.name | endswith("Linux-x86_64")) | .browser_download_url')
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ sudo docker-compose version
+```
+
+#### on Docker
 
 ```bash
 $ sudo curl -o /opt/bin/docker-compose -L \
@@ -306,6 +370,14 @@ $ sudo docker-compose version
 
 - https://helm.sh/docs/using_helm/#installing-helm
 
+#### on Local Ubuntu
+
+```bash
+$ curl -L https://git.io/get_helm.sh | bash
+```
+
+#### on Docker
+
 ```bash
 $ curl -L https://git.io/get_helm.sh | bash
 $ sudo mv $(which helm) /opt/bin/
@@ -315,6 +387,14 @@ $ /opt/bin/helm version
 ### jq (recommended)
 
 - https://github.com/stedolan/jq
+
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get install jq
+```
+
+#### on Docker
 
 ```bash
 $ sudo curl -o /opt/bin/jq -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
@@ -326,16 +406,31 @@ $ /opt/bin/jq -V
 
 - https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
+#### on Local Ubuntu
+
+```bash
+$ sudo apt-get update && sudo apt-get install apt-transport-https
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+$ echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt-get update
+$ sudo apt-get install kubectl
+$ kubectl version -c
+```
+
+#### on Docker
+
 ```bash
 $ sudo curl -L -o /opt/bin/kubectl \
   https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 $ sudo chmod +x /opt/bin/kubectl
-$ /opt/bin/kubectl version
+$ /opt/bin/kubectl version -c
 ```
 
 ### Optware-ng (recommended)
 
 - https://github.com/Optware/Optware-ng
+
+#### on Local Ubuntu & Docker
 
 ```bash
 $ wget -O - http://ipkg.nslu2-linux.org/optware-ng/bootstrap/buildroot-x86_64-bootstrap.sh | sudo sh
@@ -350,6 +445,8 @@ $ sudo ipkg install <package>
 
 - https://yarnpkg.com/en/docs/install#alternatives-stable
 
+#### on Local Ubuntu & Docker
+
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install gpg
@@ -361,6 +458,17 @@ $ yarn -v
 ### yq
 
 - https://github.com/mikefarah/yq
+
+#### on Local Ubuntu
+
+```bash
+$ sudo curl -o /usr/local/bin/yq -L \
+  $(curl -s -L https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url')
+$ sudo chmod +x /usr/local/bin/yq
+$ yq -V
+```
+
+#### on Docker
 
 ```bash
 $ sudo curl -o /opt/bin/yq -L \
