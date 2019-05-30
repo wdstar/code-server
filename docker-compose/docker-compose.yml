@@ -1,5 +1,5 @@
 ---
-version: '2'
+version: '2.2'
 services:
   code-server:
     image: codercom/code-server:latest
@@ -18,7 +18,9 @@ services:
     - "${PWD}/coder:/home/coder:rw"
     - "${PWD}/etc/sudoers.d/code-server:/etc/sudoers.d/code-server:ro"
     - "${PWD}/opt:/opt:rw"
-    - "${SSH_AUTH_SOCK}:/ssh-agent:rw"
+    # comment out if you don't use the SSH protocol to access GitHub,...
+    - "${SSH_AUTH_SOCK:-/tmp/ssh-coder/agent.dummy}:/ssh-agent:rw"
+    - "/var/run/docker.sock:/var/run/docker.sock:rw"
     # with server certificate and key
     #- "/path/to/server.crt:/server.crt:ro"
     #- "/path/to/server.key:/server.key:ro"
@@ -26,5 +28,5 @@ services:
       # ICU
       LD_LIBRARY_PATH: /opt/icu/lib
       # Optware-ng, .Net
-      PATH: '${PATH}:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
+      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
       SSH_AUTH_SOCK: /ssh-agent
