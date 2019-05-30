@@ -1,5 +1,6 @@
 #!/bin/sh
 
-curl -L -O $(curl -s -L https://api.github.com/repos/cdr/code-server/releases/latest | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url')
-sudo tar xvzf code-server*-linux-x64.tar.gz -C /usr/local/bin/ --strip=1 --wildcards '*/code-server'
+tar_file=code-server-latest-linux-x64.tar.gz
+
+curl -L -o $tar_file $(curl -s -L https://api.github.com/repos/cdr/code-server/releases/latest | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url') sudo tar xvzf $tar_file -C /usr/local/bin/ --strip=1 --wildcards '*/code-server'
 code-server -V
