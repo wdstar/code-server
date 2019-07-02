@@ -30,3 +30,5 @@ services:
       # Optware-ng, .Net
       PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
       SSH_AUTH_SOCK: /ssh-agent
+      GOROOT: "${CS_GOROOT}"
+      GOPATH: "${CS_GOPATH}"
