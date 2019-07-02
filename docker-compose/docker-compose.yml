@@ -25,10 +25,8 @@ services:
     #- "/path/to/server.crt:/server.crt:ro"
     #- "/path/to/server.key:/server.key:ro"
     environment:
-      # ICU
-      LD_LIBRARY_PATH: /opt/icu/lib
-      # Optware-ng, .Net
-      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet'
+      LD_LIBRARY_PATH: "${CS_LD_LIBRARY_PATH}"
+      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${CS_PATH}"
       SSH_AUTH_SOCK: /ssh-agent
       GOROOT: "${CS_GOROOT}"
       GOPATH: "${CS_GOPATH}"
