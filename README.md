@@ -8,6 +8,7 @@ code-server local execution scripts and docker-compose configurations.
 - [on Docker](#on-docker)
     - [Requirements](#requirements)
     - [Persistent Volumes](#persistent-volumes)
+    - [Environment Variables](#environment-variables)
     - [Usage](#usage)
 - [Installation of Languages (optional)](#installation-of-languages-optional)
     - [C#](#c)
@@ -84,6 +85,17 @@ $ sudo docker info
 |:---|:---|:---|
 |`./docker-compose/coder`|`/home/coder`|`coder` default user's home directory.|
 |`./docker-compose/opt`|`/opt`|To install language runtimes, SDKs and tools.|
+
+### Environment Variables
+
+- You can customize the environment variables in a code-server container by modifing the `./docker-compose/.env` file.
+
+|Env. var. names in container|Env. var. names in the `./docker-compose/.env` file|Default values|Remarks|
+|:---|:---|:---|:---|
+|`GOROOT`|`CS_GOROOT`|`/opt/go`||
+|`GOPATH`|`CS_GOPATH`|`/home/coder/go`||
+|`LD_LIBRARY_PATH`|`CS_LD_LIBRARY_PATH`|`/opt/icu/lib`|for ICU|
+|`PATH`|`CS_PATH`|`/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet`|for Optware-ng, .Net|
 
 ### Usage
 
