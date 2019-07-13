@@ -213,6 +213,20 @@ $ . ~/.bashrc
 $ go version
 ```
 
+- Known issue: `exec: "gcc": executable file not found`
+  - Error
+    ```
+    $ go test ./...
+    # runtime/cgo
+    exec: "gcc": executable file not found in $PATH
+    ```
+  - Solution
+    ```bash
+    $ export CGO_ENABLED=0
+    or
+    $ sudo ipkg install gcc
+    ```
+
 ### Java
 
 #### on Local Ubuntu
