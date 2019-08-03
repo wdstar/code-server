@@ -241,11 +241,13 @@ $ java -version
 #### on Docker
 
 - Install by the Optware-ng (see the following *Tools* section to install it)
+    ```bash
+    $ sudo ipkg install openjdk8-jdk
+    $ java -version
+    ```
 
-```bash
-$ sudo ipkg install openjdk8-jdk
-$ java -version
-```
+- Other distributions
+    - https://adoptopenjdk.net/
 
 ### Node.js
 
