@@ -26,6 +26,7 @@ code-server local execution scripts and docker-compose configurations.
     - [direnv](#direnv)
     - [Docker CLI](#docker-cli)
     - [Docker Compose](#docker-compose)
+    - [Gradle](#gradle)
     - [helm](#helm)
     - [jq (recommended)](#jq-recommended)
     - [kubectl](#kubectl)
@@ -458,6 +459,16 @@ $ sudo curl -o /opt/bin/docker-compose -L \
   $(curl -s -L https://api.github.com/repos/docker/compose/releases/latest | jq -r '.assets[] | select(.name | endswith("Linux-x86_64")) | .browser_download_url')
 $ sudo chmod +x /opt/bin/docker-compose
 $ sudo docker-compose version
+```
+
+### Gradle
+
+- https://gradle.org/install/
+
+```bash
+$ curl -LO https://services.gradle.org/distributions/gradle-5.5.1-bin.zip
+$ sudo unzip -d /opt gradle-*-bin.zip
+$ sudo ln -s /opt/gradle-* /opt/gradle
 ```
 
 ### helm
