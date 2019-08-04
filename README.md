@@ -95,7 +95,7 @@ $ sudo docker info
 |`GOROOT`|`CS_GOROOT`|`/opt/go`||
 |`GOPATH`|`CS_GOPATH`|`/home/coder/go`||
 |`LD_LIBRARY_PATH`|`CS_LD_LIBRARY_PATH`|`/opt/icu/lib`|for ICU|
-|`PATH`|`CS_PATH`|`/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet`|for Optware-ng, .Net|
+|`PATH`|`CS_PATH`|`/opt/bin:/opt/sbin:/opt/dotnet:/home/coder/dotnet:/opt/go/bin`|for Optware-ng, .Net, Go|
 
 ### Usage
 
