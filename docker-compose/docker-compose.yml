@@ -2,12 +2,18 @@
 version: '2.2'
 services:
   code-server:
-    image: codercom/code-server:latest
+    image: codercom/code-server:${CS_IMAGE_TAG}
     command:
     - --disable-telemetry
+    # Default port: 8080 (v2.x), 8443 (v1.x)
+    - --port
+    - '8443'
     # with server certificate and key
     #- --cert=/server.crt
     #- --cert-key=/server.key
+    # v2.x only: --cert without any path will generate a self-signed certificate.
+    #- --cert
+    # v1.x: No --cert will generate a self-signed certificate.
     # for local access
     #- --allow-http --no-auth
     ports:
