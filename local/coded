@@ -1,6 +1,15 @@
 #!/bin/sh
 
-/usr/local/bin/code-server \
+CMD=/usr/local/bin/code-server
+EXTRA_OPTS=
+
+if $CMD --version | grep -e '2\..\+-vsc.\+' > /dev/null 2>&1; then
+  EXTRA_OPTS='--auth none'
+else
+  EXTRA_OPTS='--allow-http --no-auth'
+fi
+
+$CMD \
+  --host 127.0.0.1 --port 8080 \
   --disable-telemetry \
-  --allow-http --no-auth \
-  --host 127.0.0.1 --port 8080
+  $EXTRA_OPTS
