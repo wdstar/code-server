@@ -33,6 +33,9 @@ code-server local execution scripts and docker-compose configurations.
     - [Optware-ng (recommended)](#optware-ng-recommended)
     - [yarn](#yarn)
     - [yq](#yq)
+- [Help](#help)
+    - [v2.x](#v2x)
+    - [v1.x](#v1x)
 
 ## on Local server
 
@@ -580,4 +583,88 @@ $ sudo curl -o /opt/bin/yq -L \
   $(curl -s -L https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url')
 $ sudo chmod +x /opt/bin/yq
 $ /opt/bin/yq -V
+```
+
+## Help
+
+### v2.x
+
+```
+$ code-server --version
+info  2.1665-vsc1.39.2
+info  3d5db8313a91f80dfc402450fd117b4e63f7711e
+info  x64
+
+$ code-server --help
+code-server 2.1665-vsc1.39.2
+
+Usage: code-server [options][paths...]
+
+Options
+  --locale <locale>              The locale to use (e.g. en-US or zh-TW).
+  --user-data-dir <dir>          Specifies the directory that user data is kept in. Can be used to open multiple distinct instances of Code.
+  -v --version                   Print version.
+  -h --help                      Print usage.
+  --telemetry                    Shows all telemetry events which VS code collects.
+  --extra-builtin-extensions-dir Path to an extra builtin extension directory.
+  --extra-extensions-dir         Path to an extra user extension directory.
+  --base-path                    Base path of the URL at which code-server is hosted (used for login redirects).
+  --cert                         Path to certificate. If the path is omitted, both this and --cert-key will be generated.
+  --cert-key                     Path to the certificate's key if one was provided.
+  --format                       Format for the version. Allowed value is 'json'.
+  --host                         Host for the server.
+  --auth                         The type of authentication to use. Allowed values are 'password', 'none'.
+  --open                         Open in the browser on startup.
+  --port                         Port for the main server.
+  --socket                       Listen on a socket instead of host:port.
+
+Extensions Management
+  --extensions-dir <dir>                            Set the root path for extensions.
+  --list-extensions                                 List the installed extensions.
+  --show-versions                                   Show versions of installed extensions, when using --list-extension.
+  --category                                        Filters installed extensions by provided category, when using --list-extension.
+  --install-extension <extension-id | path-to-vsix> Installs or updates the extension. Use `--force` argument to avoid prompts.
+  --uninstall-extension <extension-id>              Uninstalls an extension.
+  --enable-proposed-api <extension-id>              Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
+
+Troubleshooting
+  --verbose                          Print verbose output (implies --wait).
+  --log <level>                      Log level to use. Default is 'info'. Allowed values are 'critical', 'error', 'warn', 'info', 'debug', 'trace', 'off'.
+  -s --status                        Print process usage and diagnostics information.
+  --disable-extensions               Disable all installed extensions.
+  --disable-extension <extension-id> Disable an extension.
+```
+
+### v1.x
+
+```
+$ code-server --version
+1.1156-vsc1.33.1
+
+$ code-server --help
+Usage: code-server [options]
+
+Run VS Code on a remote server.
+
+Options:
+  -V, --version                         output the version number
+  --cert <value>
+  --cert-key <value>
+  -e, --extensions-dir <dir>            Override the main default path for user extensions.
+  --extra-extensions-dir [dir]          Path to an extra user extension directory (repeatable). (default: [])
+  --extra-builtin-extensions-dir [dir]  Path to an extra built-in extension directory (repeatable). (default: [])
+  -d --user-data-dir <dir>              Specifies the directory that user data is kept in, useful when running as root.
+  --data-dir <value>                    DEPRECATED: Use '--user-data-dir' instead. Customize where user-data is stored.
+  -h, --host <value>                    Customize the hostname. (default: "0.0.0.0")
+  -o, --open                            Open in the browser on startup.
+  -p, --port <number>                   Port to bind on. (default: 8443)
+  -N, --no-auth                         Start without requiring authentication.
+  -H, --allow-http                      Allow http connections.
+  -P, --password <value>                DEPRECATED: Use the PASSWORD environment variable instead. Specify a password for authentication.
+  --disable-telemetry                   Disables ALL telemetry.
+  --socket <value>                      Listen on a UNIX socket. Host and port will be ignored when set.
+  --install-extension <value>           Install an extension by its ID.
+  --bootstrap-fork <name>               Used for development. Never set.
+  --extra-args <args>                   Used for development. Never set.
+  -h, --help                            output usage information
 ```

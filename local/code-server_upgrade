@@ -3,6 +3,6 @@
 tar_file=code-server-latest-linux-x64.tar.gz
 
 #curl -L -o $tar_file $(curl -s -L https://api.github.com/repos/cdr/code-server/releases/latest | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url')
-curl -L -o $tar_file 'https://github.com'$(curl -sS -L https://github.com/cdr/code-server/releases/latest | grep -o -e '/cdr/code-server/.*-linux-x64.tar.gz')
+curl -L -o $tar_file 'https://github.com'$(curl -sS -L https://github.com/cdr/code-server/releases/latest | grep -o -e '/cdr/code-server/.*-linux-x.*64\.tar\.gz')
 sudo tar xvzf $tar_file -C /usr/local/bin/ --strip=1 --wildcards '*/code-server'
-code-server -V
+code-server --version
